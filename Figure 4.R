@@ -1,25 +1,3 @@
-#!/usr/bin/env Rscript
-
-#' @title 开发规范
-#' @description
-#' 对于每个脚本，希望有明确的帮助文档以及代码注释
-#' 帮助文档这里推荐[docopt](https://github.com/docopt/docopt.R)
-#' @description
-#' 1. 对于R包，默认的repos为[RSPM](https://packagemanager.rstudio.com)，可通过`getOption("repos")`查看；
-#' 2. 默认情况下，我们仅维护每个 R 包的其中一个版本
-#' `.libPaths()`查看 R 包路径；
-#' 3. 对于需要自己维护的 R 包，可以在 terminal 找一个可写路径，
-#' 使用`.libPaths(new = c("./",.libPaths()))`定义当前路径为最高优先级
-#' 之后即可使用`install.packages()`下载至当前目录
-#' 在下一次启动 R 会话时使用`.libPaths()`进行导入
-#' @description
-#' 对于每个 R 文件，建议写完后使用`styler::style_file()`格式化
-#' @description
-#' 默认的工作路径为每个用户 terminal 主目录
-
-
-
-setwd("/GeneCloud003/genecloud/Org_terminal/org_140/terminal/songmm_18513955794/project/yzz_brainMeta/RNA-seq")
 
 library(readxl)
 
@@ -305,10 +283,6 @@ ggsave("../paper1.Figure/hallmark.gsea.pdf",width = 5,height = 4)
 library(GseaVis)
 library(org.Hs.eg.db)
 
-source("/GeneCloud003/genecloud/Org_terminal/org_140/terminal/songmm_18513955794/R_lib/GseaVis/R/readGseaFile.R")
-source("/GeneCloud003/genecloud/Org_terminal/org_140/terminal/songmm_18513955794/R_lib/GseaVis/R/gseaNb.R")
-source("/GeneCloud003/genecloud/Org_terminal/org_140/terminal/songmm_18513955794/R_lib/GseaVis/R/gsInfoNew.R")
-
 
 go.path <- "07_GSEA/metastases_versus_primary/GO/metastases_versus_primary.GO.Gsea.1686327707512/"
 kegg.path <- "07_GSEA/metastases_versus_primary/kegg/metastases_versus_primary.kegg.Gsea.1686326944430/"
@@ -448,7 +422,6 @@ gg.gap(plot=p,
 
 
 # cell death --------------------------------------------------------------
-load("/GeneCloud003/genecloud/Org_terminal/org_140/terminal/songmm_18513955794/project/yzz_brainMeta/pipeline/data/gtm_ref_Celldeath.rda")
 
 library(GSVA)
 CellDeath_gtm_ref <- CellDeath_gtm_ref[CellDeath_gtm_ref$gene!='',]
